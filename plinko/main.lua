@@ -1,5 +1,6 @@
 function love.load()
   love.graphics.setFont(love.graphics.newFont(42))
+  love.window.setMode(800, 600, {resizable = true})
 end
 
 function love.update(dt)
