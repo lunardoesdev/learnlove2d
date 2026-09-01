@@ -11,9 +11,23 @@ function love.draw()
     local w = love.graphics.getWidth()
     local h = love.graphics.getHeight()
 
-    local rectH = h * 0.2
+    local plinkoScreenSize = math.min(h * 0.8, w)
+    local vpad = 0.5 * (h * 0.8 - plinkoScreenSize)
+    local plinkoWidget = {
+        width = plinkoScreenSize,
+        height = plinkoScreenSize,
+        x = 0.5 * (w - plinkoScreenSize),
+        y = 0
+    }
+
+    local rectH = h - plinkoScreenSize
     love.graphics.setColor(0.5, 0.5, 0.5)
     love.graphics.rectangle("fill", 0, h - rectH, w, rectH)
+
+    love.graphics.setColor(0.1, 0.1, 0.1)
+    love.graphics.rectangle("fill", plinkoWidget.x, plinkoWidget.y, plinkoWidget.width, plinkoWidget.height)
+
+
 
     local font = love.graphics.getFont()
     local text = "Hello, Love2D"
