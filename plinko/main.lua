@@ -10,11 +10,13 @@ function love.load()
   table.insert(scene.pegs, onepeg)
 
 
-  scene.ball = {x = 0.5, y = 0.4}
+  scene.ball = {x = 0.5, y = 0.4, vx = 0, vy = 0, mass = 0.1}
+  scene.G = 1.98
 end
 
 function love.update(dt)
-    scene.ball.y = scene.ball.y + 0.1 * dt
+    scene.ball.y = scene.ball.y + scene.ball.vy * dt
+    scene.ball.vy = scene.ball.vy + scene.G * dt
 end
 
 function love.draw()
