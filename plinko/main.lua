@@ -28,10 +28,10 @@ function love.draw()
     }
 
     local rectH = h - plinkoScreenSize
-    love.graphics.setColor(0.5, 0.5, 0.5)
+    love.graphics.setColor(0.8, 0.8, 0.8)
     -- love.graphics.rectangle("fill", 0, h - rectH, w, rectH)
 
-    love.graphics.setColor(0.1, 0.1, 0.1)
+    -- love.graphics.setColor(0.1, 0.1, 0.1)
     -- love.graphics.rectangle("fill", plinkoWidget.x, plinkoWidget.y, plinkoWidget.width, plinkoWidget.height)
 
 
