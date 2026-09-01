@@ -8,10 +8,13 @@ function love.load()
 
   local onepeg = {x = 0.5, y = 0.5}
   table.insert(scene.pegs, onepeg)
+
+
+  scene.ball = {x = 0.5, y = 0.4}
 end
 
 function love.update(dt)
-
+    scene.ball.y = scene.ball.y + 0.1 * dt
 end
 
 function love.draw()
@@ -47,4 +50,7 @@ function love.draw()
         love.graphics.circle("fill", plinkoWidget.x + plinkoWidget.width * p.x,
             plinkoWidget.y + plinkoWidget.height * p.y, 15)
     end
+
+    love.graphics.circle("fill", plinkoWidget.x + plinkoWidget.width * scene.ball.x,
+        plinkoWidget.y + plinkoWidget.height * scene.ball.y, 15)
 end
