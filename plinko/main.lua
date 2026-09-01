@@ -15,5 +15,10 @@ function love.draw()
     love.graphics.setColor(0.5, 0.5, 0.5)
     love.graphics.rectangle("fill", 0, h - rectH, w, rectH)
 
-    love.graphics.print("Hello, Love2d", 300, 300)
+    local font = love.graphics.getFont()
+    local text = "Hello, Love2D"
+    local tw = font:getWidth(text)
+    local th = font:getHeight(text)
+
+    love.graphics.print(text, (w - tw) / 2, (h - th) / 2)
 end
