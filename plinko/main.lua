@@ -1,4 +1,5 @@
 function love.load()
+  love.graphics.setFont(love.graphics.newFont(42))
 end
 
 function love.update(dt)
