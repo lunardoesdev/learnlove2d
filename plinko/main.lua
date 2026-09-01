@@ -1,6 +1,13 @@
+local scene = {}
+
 function love.load()
   love.graphics.setFont(love.graphics.newFont(42))
   love.window.setMode(800, 600, {resizable = true})
+
+  scene.pegs = {}
+
+  local onepeg = {x = 0.5, y = 0.5}
+  table.insert(scene.pegs, onepeg)
 end
 
 function love.update(dt)
@@ -22,10 +29,10 @@ function love.draw()
 
     local rectH = h - plinkoScreenSize
     love.graphics.setColor(0.5, 0.5, 0.5)
-    love.graphics.rectangle("fill", 0, h - rectH, w, rectH)
+    -- love.graphics.rectangle("fill", 0, h - rectH, w, rectH)
 
     love.graphics.setColor(0.1, 0.1, 0.1)
-    love.graphics.rectangle("fill", plinkoWidget.x, plinkoWidget.y, plinkoWidget.width, plinkoWidget.height)
+    -- love.graphics.rectangle("fill", plinkoWidget.x, plinkoWidget.y, plinkoWidget.width, plinkoWidget.height)
 
 
 
@@ -34,5 +41,10 @@ function love.draw()
     local tw = font:getWidth(text)
     local th = font:getHeight(text)
 
-    love.graphics.print(text, (w - tw) / 2, (h - th) / 2)
+    -- love.graphics.print(text, (w - tw) / 2, (h - th) / 2)
+
+    for _, p in ipairs(scene.pegs) do
+        love.graphics.circle("fill", plinkoWidget.x + plinkoWidget.width * p.x,
+            plinkoWidget.y + plinkoWidget.height * p.y, 15)
+    end
 end
