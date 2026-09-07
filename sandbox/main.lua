@@ -13,7 +13,7 @@ local gravity = 500
 function love.load()
     for row = 1, 8 do
         for col = 1, row + 2 do
-            local x = 400 + (col - (row + 2) / 2) * 50
+            local x = 400 + (col - (row + 3) / 2) * 75
             local y = 100 + row * 45
             table.insert(pins, {x = x, y = y})
         end
