@@ -52,3 +52,12 @@ function love.draw()
 
     love.graphics.circle("fill", ball.x, ball.y, ball.radius)
 end
+
+function love.keypressed(key)
+    if key == "r" then
+        ball.x = 400
+        ball.y = 50
+        ball.vx = 0
+        ball.vy = 0
+    end
+end
