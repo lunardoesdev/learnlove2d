@@ -4,6 +4,7 @@ local ball = {
     x = 400,
     y = 50,
     vy = 0,
+    vx = 0,
     radius = 10
 }
 
@@ -22,6 +23,17 @@ end
 function love.update(dt)
     ball.vy = ball.vy + gravity * dt
     ball.y = ball.y + ball.vy * dt
+    ball.x = ball.x + ball.vx * dt
+
+    for _, p in ipairs(pins) do
+        local dx = ball.x - p.x
+        local dy = ball.y - p.y
+        local dist = math.sqrt(dx * dx + dy * dy)
+        if (dist < ball.radius + 5) then
+            ball.vy = -ball.vy * 0.5
+            ball.vx = (dx > 0 and 1 or -1) * 100 + math.random(-20, 20)
+        end
+    end
 
     if ball.y > 620 then
         ball.y = 50
