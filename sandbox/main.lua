@@ -40,6 +40,8 @@ function love.update(dt)
         ball.vy = 0
         ball.x = 400 + math.random(-50, 50)
     end
+
+    if ball.x < 50 or ball.x > 750 then ball.vx = -ball.vx end
 end
 
 function love.draw()
