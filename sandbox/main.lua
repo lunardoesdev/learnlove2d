@@ -1,5 +1,14 @@
 local pins = {}
 
+local ball = {
+    x = 400,
+    y = 50,
+    vy = 0,
+    radius = 10
+}
+
+local gravity = 500
+
 function love.load()
     for row = 1, 8 do
         for col = 1, row + 2 do
@@ -10,6 +19,16 @@ function love.load()
     end
 end
 
+function love.update(dt)
+    ball.vy = ball.vy + gravity * dt
+    ball.y = ball.y + ball.vy * dt
+
+    if ball.y > 620 then
+        ball.y = 50
+        ball.vy = 0
+        ball.x = 400 + math.random(-50, 50)
+    end
+end
 
 function love.draw()
     local x,y = love.mouse.getPosition()
@@ -18,4 +37,6 @@ function love.draw()
     for _, p in ipairs(pins) do
         love.graphics.circle("fill", p.x, p.y, 5)
     end
+
+    love.graphics.circle("fill", ball.x, ball.y, ball.radius)
 end
